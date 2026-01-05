@@ -5,47 +5,32 @@
   <title>My First GitHub App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .card {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      max-width: 300px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      background: #00c853;
-      color: #000;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+    <body>
 
   <div class="card">
-    <h1>Hello 👋</h1>
-    <p>This is my first app hosted on GitHub.</p>
-    <button onclick="sayHello()">Click me</button>
+    <h1>Interactive Counter 🚀</h1>
+    <p>Click the button to increase the count:</p>
+    <h2 id="count">0</h2>
+    <button onclick="increaseCount()">Click Me!</button>
   </div>
 
   <script>
-    function sayHello() {
-      alert("Nice! Your app is working 🚀");
+    let count = 0;
+
+    function increaseCount() {
+      count++;
+      const countEl = document.getElementById('count');
+      countEl.textContent = count;
+
+      // Change background color on milestones
+      const card = document.querySelector('.card');
+      if (count % 10 === 0) {
+        card.style.background = '#ff5722'; // orange
+      } else if (count % 5 === 0) {
+        card.style.background = '#00bcd4'; // teal
+      } else {
+        card.style.background = '#1e1e1e'; // default
+      }
     }
   </script>
 
